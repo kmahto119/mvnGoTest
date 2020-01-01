@@ -1,12 +1,12 @@
 package genericLib;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -75,9 +75,9 @@ public class BaseClass {
 		
 		/*create an object LOGIN POM class*/
 		
-		//Login1 lp=PageFactory.initElements(driver, Login1.class);
+		
 		Login lp=PageFactory.initElements(driver, Login.class);
-		//Login1 lp99=PageFactory.initElements(driver, Login1.class);
+		
 		lp.loginToApp(USERNAME, PASSWORD);	
 		
 		//3.read the data
@@ -103,12 +103,22 @@ public class BaseClass {
 
 	}
 	@AfterMethod
-	public void configAM()
+	public void configAM() throws Throwable
 	{
 		Home hp=PageFactory.initElements(driver, Home.class);
+		Thread.sleep(4000);
 		//Home1 hp=PageFactory.initElements(driver, Home1.class);
-		hp.getLogOutLnk();
-		
+		try {
+			Actions act=new Actions(driver);
+			act.moveToElement(hp.getlogOutBtnImg());
+			act.perform();
+		hp.getLogOutLnk().click();
+		System.out.println("clicked successfully..");
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("not clicked .");
+
+		}
 		/*WebElement wb=driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
 		Actions act=new Actions(driver);
 		act.moveToElement(wb);
@@ -116,7 +126,7 @@ public class BaseClass {
 		driver.findElement(By.xpath("//a[(text()='Sign Out')]")).click();	*/
 	}
 	@AfterClass
-	public void configAc()
+	public void configAc() throws InterruptedException
 	{
 		String expogOutPage="vtiger CRM 5 - Commercial Open Source CRM";
 		String actLogOutPage=driver.getTitle();
@@ -124,10 +134,8 @@ public class BaseClass {
 	    s.assertEquals(actLogOutPage, expogOutPage);
 	    
 	    Reporter.log("logout successfully", true);
-		
-		
-		System.out.println("======closing browser=======");
-		driver.quit();
+	    Thread.sleep(4000);
+		//driver.quit();
     }
 
 }
