@@ -16,9 +16,12 @@ public class CreditCardTest {
 	
 	@Test
 	public void test12() throws Exception{
-	 
+		System.setProperty("webdriver.chrome.driver","./src/main/resources/chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		
 	// Initialize browser
-	WebDriver driver=new ChromeDriver();
+	//WebDriver driver=new ChromeDriver();
 	 
 	// Open Google
 	driver.get("http://www.google.com");
