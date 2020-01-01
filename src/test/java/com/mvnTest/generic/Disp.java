@@ -7,7 +7,6 @@ public class Disp {
 		System.out.println("=====execute display====first===");
 		System.out.println(a);
 		System.out.println(b);
-
 		System.out.println("Bangalore");
 		System.out.println("Hyderabad");
 		
