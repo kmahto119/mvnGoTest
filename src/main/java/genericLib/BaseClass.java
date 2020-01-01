@@ -48,7 +48,7 @@ public class BaseClass {
 			//end here
 			
 			
-			driver=new ChromeDriver();
+			//driver=new ChromeDriver();
 		}else if(BROWSERNAME.equals("ie")){
 			driver=new InternetExplorerDriver();
 		}else{
