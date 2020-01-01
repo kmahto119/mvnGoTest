@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <!-- <class name="test1.Contact_TC_21Test"/> -->
+      <class name="test1.Contact_TC_21Test"/>
       <class name="com.mvnTest.generic.CreditCardTest"/>
     </classes>
   </test> <!-- Test -->

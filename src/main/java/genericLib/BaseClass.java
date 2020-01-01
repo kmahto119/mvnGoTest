@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -38,6 +39,15 @@ public class BaseClass {
 		if(BROWSERNAME.equals("firefox")){
 			driver=new FirefoxDriver();
 		}else if(BROWSERNAME.equals("chrome")){
+			//start here
+			ChromeOptions chromeOptions= new ChromeOptions();
+			chromeOptions.setBinary("C:/Users/kailash/AppData/Local/Google/Chrome/Application/chrome.exe");
+			System.setProperty("webdriver.chrome.driver","./src/main/resources/chromedriver_78.exe");
+			driver = new ChromeDriver(chromeOptions);
+			//ChromeDriver driver = new ChromeDriver(chromeOptions);
+			//end here
+			
+			
 			driver=new ChromeDriver();
 		}else if(BROWSERNAME.equals("ie")){
 			driver=new InternetExplorerDriver();
