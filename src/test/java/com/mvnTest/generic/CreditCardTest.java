@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.Test;
 
@@ -16,8 +17,19 @@ public class CreditCardTest {
 	
 	@Test
 	public void test12() throws Exception{
+		
+	//start here
+		ChromeOptions chromeOptions= new ChromeOptions();
+		chromeOptions.setBinary("C:/Users/kailash/AppData/Local/Google/Chrome/Application/chrome.exe");
 		System.setProperty("webdriver.chrome.driver","./src/main/resources/chromedriver_78.exe");
-		WebDriver driver = new ChromeDriver();
+
+		ChromeDriver driver = new ChromeDriver(chromeOptions);
+		//driver.get("http://newtours.demoaut.com/");
+		
+	
+	//end here	
+		//System.setProperty("webdriver.chrome.driver","./src/main/resources/chromedriver_78.exe");
+		//WebDriver driver = new ChromeDriver();
 		
 		
 	// Initialize browser
